@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manillas | Hilos & Corazón</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f5f2;
+            color: #4d3543;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           ENCABEZADO
+        ===================================================== */
+
+        header {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-bottom: 1px solid #eadde2;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nombre-tienda {
+            flex: 1;
+            margin-left: 18px;
+        }
+
+        .nombre-tienda h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: normal;
+            color: #63324d;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5d4854;
+            font-size: 15px;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #a34f73;
+        }
+
+
+        /* =====================================================
+           PORTADA DE CATEGORÍA
+        ===================================================== */
+
+        .hero-categoria {
+            padding: 90px 20px 80px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(238, 216, 225, 0.72),
+                    rgba(248, 235, 241, 0.82)
+                );
+            border-bottom: 1px solid #eadde2;
+        }
+
+        .hero-categoria .migaja {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #9b5272;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .hero-categoria .migaja:hover {
+            color: #7f3c5c;
+        }
+
+        .hero-categoria h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 6vw, 62px);
+            font-weight: normal;
+            color: #572c43;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+
+        .hero-categoria p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: #66515c;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           GALERÍA
+        ===================================================== */
+
+        .galeria {
+            max-width: 1120px;
+            margin: auto;
+            padding: 80px 25px 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .item {
+            background: white;
+            border: 1px solid #dfd0d7;
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 12px 28px
+                rgba(91, 45, 67, 0.10);
+        }
+
+        .item-imagen {
+            width: 100%;
+            height: 300px;
+            background: #f0e2e7;
+            overflow: hidden;
+        }
+
+        .item-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-info {
+            padding: 20px 20px 22px;
+            text-align: center;
+        }
+
+        .item-numero {
+            display: block;
+            margin-bottom: 14px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            color: #60324b;
+            letter-spacing: 0.5px;
+        }
+
+        .boton-whatsapp {
+            display: block;
+            padding: 12px 22px;
+            background: #7f3c5c;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 3px;
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .boton-whatsapp:hover {
+            background: #662f49;
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           VOLVER
+        ===================================================== */
+
+        .volver {
+            text-align: center;
+            padding: 20px 20px 90px;
+        }
+
+        .volver a {
+            display: inline-block;
+            padding: 12px 26px;
+            border: 1px solid #7f3c5c;
+            color: #7f3c5c;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 3px;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .volver a:hover {
+            background: #7f3c5c;
+            color: white;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 45px 20px;
+            text-align: center;
+            background: #4c303e;
+            color: white;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        footer p {
+            color: #d9cbd1;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 950px) {
+            .galeria {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 14px 5%;
+                flex-wrap: wrap;
+            }
+
+            .logo img {
+                width: 48px;
+                height: 48px;
+            }
+
+            .nombre-tienda h1 {
+                font-size: 21px;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                gap: 25px;
+                padding-top: 8px;
+            }
+
+            .hero-categoria {
+                padding: 70px 20px 60px;
+            }
+
+            .hero-categoria h2 {
+                font-size: 38px;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+                padding: 60px 20px 50px;
+                gap: 26px;
+            }
+
+            .item-imagen {
+                height: 260px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <a href="index.html" class="logo">
+
+            <img
+                src="Img.png"
+                alt="Logo de Hilos & Corazón"
+            >
+
+        </a>
+
+        <div class="nombre-tienda">
+            <h1>Hilos & Corazón</h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="index.html#catalogo">Catálogo</a>
+            <a href="index.html#sobre">Nosotros</a>
+        </nav>
+
+    </header>
+
+
+
+    <section class="hero-categoria">
+
+        <a href="index.html#catalogo" class="migaja">
+            ← Volver al catálogo
+        </a>
+
+        <h2>Manillas</h2>
+
+        <p>
+            Manillas tejidas a mano con hilos de colores
+            y decoraciones especiales. Elige tu favorita
+            y encárgala directamente por WhatsApp.
+        </p>
+
+    </section>
+
+
+
+    <section class="galeria">
+
+
+        <!-- =========================
+             MANILLA 1
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla1.jpg" alt="Manilla N°1">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°1
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°1"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MANILLA 2
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla2.jpg" alt="Manilla N°2">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°2
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°2"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MANILLA 3
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla3.jpg" alt="Manilla N°3">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°3
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°3"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MANILLA 4
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla4.jpg" alt="Manilla N°4">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°4
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°4"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MANILLA 5
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla5.jpg" alt="Manilla N°5">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°5
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°5"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             MANILLA 6
+        ========================== -->
+
+        <div class="item">
+
+            <div class="item-imagen">
+                <img src="manilla6.jpg" alt="Manilla N°6">
+            </div>
+
+            <div class="item-info">
+
+                <span class="item-numero">
+                    Manilla N°6
+                </span>
+
+                <a
+                    href="https://wa.me/573042133954?text=Hola,%20quiero%20encargar%20la%20manilla%20N°6"
+                    target="_blank"
+                    class="boton-whatsapp"
+                >
+                    Encargar esta manilla
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <section class="volver">
+
+        <a href="index.html#catalogo">
+            ← Volver al catálogo
+        </a>
+
+    </section>
+
+
+
+    <footer>
+
+        <h3>Hilos & Corazón</h3>
+
+        <p>Accesorios hechos a mano.</p>
+
+        <p>Hecho con dedicación y cariño.</p>
+
+        <p>© 2026 Hilos & Corazón</p>
+
+    </footer>
+
+
+</body>
+</html>
